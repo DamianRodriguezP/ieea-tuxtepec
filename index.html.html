@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IEEA Tuxtepec – Estudia con Nosotros</title>
+
+  <!-- Fuente sencilla y legible -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ====== Estilos básicos ====== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+      font-size: 18px; /* letra grande para fácil lectura */
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: #0a5c8c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Contenedor general */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    /* ====== Encabezado ====== */
+    header {
+      background: #0a5c8c;
+      color: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      gap: 1rem;
+    }
+
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .logo-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: rgba(255, 255, 255, 0.16);
+      outline: none;
+    }
+
+    /* Botón menú móvil */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 24px;
+      height: 3px;
+      background: #ffffff;
+      border-radius: 2px;
+    }
+
+    /* ====== Hero / Inicio ====== */
+    .hero {
+      background: #e1f3ff;
+      border-bottom: 1px solid #d0e3f1;
+    }
+
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2rem;
+      margin: 0 0 0.75rem;
+      color: #0a3d63;
+    }
+
+    .hero-text p {
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #0a5c8c;
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: #074264;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #0a5c8c;
+      border: 1px solid #0a5c8c;
+    }
+
+    .btn-secondary:hover {
+      background: #f0f8ff;
+    }
+
+    /* Botón especial de WhatsApp */
+    .btn-whatsapp {
+      background: #25D366;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ea955;
+    }
+
+    .hero-note {
+      font-size: 0.95rem;
+      color: #274b63;
+      margin-top: 0.5rem;
+    }
+
+    .hero-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    .hero-image img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ====== Secciones generales ====== */
+    section {
+      padding: 2.5rem 0 0;
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      color: #0a3d63;
+    }
+
+    section p.section-intro {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* ====== Tarjetas de estudios ====== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.4rem;
+      font-size: 1.25rem;
+      color: #0a3d63;
+    }
+
+    .card span.emoji {
+      font-size: 1.5rem;
+      margin-right: 0.4rem;
+    }
+
+    .card p {
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    .card ul {
+      padding-left: 1.1rem;
+      margin: 0.3rem 0 0;
+      font-size: 0.95rem;
+    }
+
+    /* ====== Pasos para inscribirse ====== */
+    .steps {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .steps ol {
+      margin: 0.5rem 0 0;
+      padding-left: 1.3rem;
+    }
+
+    .steps li {
+      margin-bottom: 0.7rem;
+    }
+
+    .steps-remark {
+      margin-top: 0.9rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ====== Preguntas frecuentes ====== */
+    .faq {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.3rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .faq-item + .faq-item {
+      margin-top: 0.9rem;
+      border-top: 1px solid #eee;
+      padding-top: 0.9rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ====== Contacto ====== */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.6rem;
+      align-items: flex-start;
+    }
+
+    .contact-box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.3rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .contact-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      font-size: 1.3rem;
+      color: #0a3d63;
+    }
+
+    .contact-info p {
+      margin: 0.2rem 0;
+      font-size: 0.98rem;
+    }
+
+    .contact-info strong {
+      font-weight: 700;
+    }
+
+    .map-link {
+      margin-top: 0.5rem;
+      display: inline-block;
+      font-size: 0.95rem;
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.4rem;
+    }
+
+    /* ====== Pie de página ====== */
+    footer {
+      background: #0a3d63;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem 0.5rem 1.2rem;
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      margin: 0.2rem 0;
+    }
+
+    /* ====== Responsivo ====== */
+    @media (max-width: 768px) {
+      .header-inner {
+        padding-inline: 1rem;
+      }
+
+      nav ul {
+        position: absolute;
+        top: 56px;
+        right: 0;
+        background: #0a5c8c;
+        flex-direction: column;
+        width: 190px;
+        padding: 0.6rem 0.8rem;
+        border-radius: 0 0 0 12px;
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        order: -1; /* imagen arriba en móvil */
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== Encabezado ====== -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-block">
+        <span class="logo-title">IEEA Tuxtepec</span>
+        <span class="logo-subtitle">Instituto Estatal de Educación para Adultos</span>
+      </div>
+
+      <nav aria-label="Menú principal">
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir o cerrar menú">
+          <span></span><span></span><span></span>
+        </button>
+        <ul id="menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#estudios">¿Qué puedo estudiar?</a></li>
+          <li><a href="#pasos">¿Cómo me inscribo?</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== Hero / Inicio ====== -->
+  <section id="inicio" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Termina tu primaria o secundaria en IEEA Tuxtepec</h1>
+        <p>
+          Si eres joven o adulto y no pudiste terminar la escuela, aquí puedes
+          estudiar <strong>gratis</strong> y a tu ritmo.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#estudios">Quiero estudiar</a>
+          <a class="btn btn-secondary" href="#contacto">Quiero más información</a>
+        </div>
+        <p class="hero-note">
+          No necesitas saber usar bien la computadora. Nuestro personal te ayuda paso a paso.
+        </p>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+        <img src="https://www.oaxaca.gob.mx/ieea/wp-content/uploads/sites/49/2023/05/WhatsApp-Image-2023-05-22-at-14.34.46.jpeg"
+             alt="Personas adultas estudiando en el IEEA Tuxtepec" />
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- ====== Qué puedo estudiar ====== -->
+    <section id="estudios" aria-label="Opciones de estudio">
+      <h2>¿Qué puedes estudiar aquí?</h2>
+      <p class="section-intro">
+        En el IEEA Tuxtepec hay programas para diferentes necesidades. Elige la opción que mejor se
+        parezca a ti.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3><span class="emoji">📝</span> Aprender a leer y escribir</h3>
+          <p><strong>Alfabetización</strong> para personas que aún no leen o escriben.</p>
+          <ul>
+            <li>Clases sencillas y con paciencia.</li>
+            <li>Material con letras grandes e imágenes.</li>
+            <li>Ideal si quieres comenzar desde cero.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3><span class="emoji">📚</span> Terminar primaria</h3>
+          <p>
+            Si dejaste la primaria inconclusa, aquí puedes terminarla y obtener tu
+            <strong>certificado oficial</strong>.
+          </p>
+          <ul>
+            <li>Estudio por módulos, a tu ritmo.</li>
+            <li>Asesorías con personal del IEEA.</li>
+            <li>Reconocimiento válido en todo México.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3><span class="emoji">🎓</span> Terminar secundaria</h3>
+          <p>
+            Completa tu <strong>secundaria</strong> y abre más puertas para trabajar o seguir estudiando.
+          </p>
+          <ul>
+            <li>Horarios flexibles.</li>
+            <li>Material fácil de entender.</li>
+            <li>Te preparamos para el siguiente nivel.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== Pasos para inscribirse ====== -->
+    <section id="pasos" aria-label="Pasos para inscribirse">
+      <h2>¿Cómo me inscribo?</h2>
+      <p class="section-intro">
+        El proceso es sencillo. Si tienes dudas, puedes venir directamente a las oficinas y te ayudamos.
+      </p>
+
+      <div class="steps">
+        <ol>
+          <li><strong>Paso 1:</strong> Acude a la oficina del IEEA Tuxtepec o llama por teléfono.</li>
+          <li><strong>Paso 2:</strong> Te explicamos qué programa es mejor para ti.</li>
+          <li><strong>Paso 3:</strong> Lleva tus documentos. Generalmente se pide CURP y acta de nacimiento.</li>
+          <li><strong>Paso 4:</strong> Te asignamos un grupo o asesor y te decimos tus horarios.</li>
+        </ol>
+        <p class="steps-remark">
+          Si no tienes algún documento, <strong>no te preocupes</strong>. Acércate y te orientamos sobre qué hacer.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====== Preguntas frecuentes ====== -->
+    <section aria-label="Preguntas frecuentes">
+      <h2>Preguntas frecuentes</h2>
+      <p class="section-intro">
+        Estas son algunas dudas comunes. Si tienes otra pregunta, llámanos o escríbenos.
+      </p>
+
+      <div class="faq">
+        <div class="faq-item">
+          <strong>¿Cuánto cuesta estudiar?</strong>
+          <p>Los servicios del IEEA son <strong>gratuitos</strong> para jóvenes y adultos.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>¿Hay edad límite para estudiar?</strong>
+          <p>No. Puedes estudiar con nosotros siendo joven o adulto, sin importar la edad.</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>¿Debo saber usar computadora?</strong>
+          <p>No es necesario. El personal del IEEA te apoya y te explica con calma.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Contacto ====== -->
+    <section id="contacto" aria-label="Datos de contacto">
+      <h2>Ubicación y contacto</h2>
+      <p class="section-intro">
+        Puedes visitarnos, llamarnos por teléfono o enviarnos un mensaje por WhatsApp.
+      </p>
+
+      <div class="contact-layout">
+        <!-- Datos -->
+        <div class="contact-box contact-info">
+          <h3>Visítanos</h3>
+          <p><strong>IEEA Tuxtepec</strong></p>
+          <p>Avenida Francisco I. Madero S/N</p>
+          <p>Fraccionamiento Costa Verde</p>
+          <p>San Juan Bautista Tuxtepec, Oaxaca</p>
+
+          <a class="map-link"
+             href="https://www.google.com/maps/place/IEEA/@18.093683,-96.1315796,359m/data=!3m1!1e3"
+             target="_blank" rel="noopener noreferrer">
+            Ver ubicación en Google Maps
+          </a>
+
+          <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;" />
+
+          <h3>Teléfono y WhatsApp</h3>
+          <p><strong>Teléfono:</strong> 2871465198</p>
+          <p><strong>WhatsApp:</strong> 2871465198</p>
+          <p style="font-size:0.9rem; color:#555;">
+            Puedes llamar o mandar un mensaje. Te atenderemos con gusto.
+          </p>
+        </div>
+
+        <!-- Botón directo a WhatsApp -->
+        <div class="contact-box">
+          <h3>Escríbenos por WhatsApp</h3>
+          <p>
+            Toca el botón de abajo. Se abrirá WhatsApp con un mensaje listo para enviar.
+          </p>
+
+          <a
+            class="btn btn-whatsapp"
+            href="https://wa.me/525525189193?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20terminar%20mi%20primaria%20o%20secundaria%20en%20el%20IEEA%20Tuxtepec."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            📲 Enviar mensaje por WhatsApp
+          </a>
+
+          <p class="form-note">
+            Si lo prefieres, también puedes abrir WhatsApp y escribirnos al número:
+            <br><strong>2871015775</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== Pie de página ====== -->
+  <footer>
+    <p>© 2025 IEEA Tuxtepec. Instituto Estatal de Educación para Adultos.</p>
+    <p>Proyecto de desarrollo de sitio web para difusión de la oferta educativa.</p>
+  </footer>
+
+  <!-- ====== JavaScript mínimo para menú móvil ====== -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('show');
+      });
+    }
+  </script>
+</body>
+</html>
